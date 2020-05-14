@@ -65,7 +65,7 @@ def format_date(x, curr_date):
         except:
             ret = None
     if ret is not None:
-        ret = ret.date()#strftime("%m/%d/%Y")
+        ret = ret.date()  # strftime("%m/%d/%Y")
     return ret
 
 

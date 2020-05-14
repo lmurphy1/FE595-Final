@@ -13,6 +13,7 @@ import requests
 import pandas as pd
 import re
 from webscraping import get_headlines
+
 nltk.download("vader_lexicon")
 
 
@@ -24,9 +25,9 @@ def update_sentiment_value(input_df_sentiment):
             vader_sentiment().polarity_scores(row["Headlines"])["compound"]
         )
         input_df_sentiment.at[i, "Score"] = curr_score
-        input_df_sentiment.at[i, "Dates"] = row["Dates"]#datetime.strptime(
-            #str(row["Dates"]), "%m/%d/%Y"
-        #).date()
+        input_df_sentiment.at[i, "Dates"] = row["Dates"]  # datetime.strptime(
+        # str(row["Dates"]), "%m/%d/%Y"
+        # ).date()
     return input_df_sentiment
 
 
@@ -80,6 +81,7 @@ def normalize_dataset(merged_dataset):
     scaled_df = scaler.fit_transform(merged_dataset)
     scaled_df = pd.DataFrame(scaled_df, columns=["Score", "Returns"])
     return scaled_df
+
 
 if __name__ == "__main__":
 

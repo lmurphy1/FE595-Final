@@ -11,13 +11,19 @@ from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 
 from webscraping import get_headlines
-from analysis import update_sentiment_value, load_TSLA_by_yfinance_Data, get_mean_score_by_date, compare_sentiment_returns
+from analysis import (
+    update_sentiment_value,
+    load_TSLA_by_yfinance_Data,
+    get_mean_score_by_date,
+    compare_sentiment_returns,
+)
 
-#x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=0)
+# x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=0)
+
 
 def preprocessings(df):
-    x = df[['Score']].values
-    y = df[['Returns']].values
+    x = df[["Score"]].values
+    y = df[["Returns"]].values
 
     x = preprocessing.scale(x)
     y = preprocessing.scale(y)
@@ -28,34 +34,40 @@ def preprocessings(df):
         else:
             values.append(1)
 
-    df['Ret'] = values
-    df.drop('Returns', axis=1, inplace=True)
-    x = df[['Score']].values
-    y = df[['Ret']].values
-    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=0)
+    df["Ret"] = values
+    df.drop("Returns", axis=1, inplace=True)
+    x = df[["Score"]].values
+    y = df[["Ret"]].values
+    x_train, x_test, y_train, y_test = train_test_split(
+        x, y, test_size=0.3, random_state=0
+    )
     return x_train, x_test, y_train, y_test
 
 
 def knc(x_train, x_test, y_train, y_test):
-    model1 = KNeighborsClassifier(algorithm='ball_tree')
+    model1 = KNeighborsClassifier(algorithm="ball_tree")
     model1.fit(x_train, y_train)
     predictions = model1.predict(x_test)
     knc_score = accuracy_score(y_test, predictions) * 100
-    return(knc_score)
+    return knc_score
+
 
 def logisticreg(x_train, x_test, y_train, y_test):
-    model2 = LogisticRegression(solver='newton-cg', multi_class='ovr', max_iter=200, penalty='l2')
+    model2 = LogisticRegression(
+        solver="newton-cg", multi_class="ovr", max_iter=200, penalty="l2"
+    )
     model2.fit(x_train, y_train)
     predictions = model2.predict(x_test)
     LogRegression = accuracy_score(y_test, predictions) * 100
-    return(LogRegression)
+    return LogRegression
+
 
 def support(x_train, x_test, y_train, y_test):
-    model3 = svm.SVC(kernel='sigmoid')
+    model3 = svm.SVC(kernel="sigmoid")
     model3.fit(x_train, y_train)
     predictions = model3.predict(x_test)
     supp = accuracy_score(y_test, predictions) * 100
-    return(supp)
+    return supp
 
 
 def naive_bayes_gaussian(x_train, x_test, y_train, y_test):
@@ -73,11 +85,13 @@ def naive_bayes_bernoulli(x_train, x_test, y_train, y_test):
     nbb = accuracy_score(y_test, predictions) * 100
     return nbb
 
+
 app = Flask(__name__)
 
-@app.route('/')
+
+@app.route("/")
 def home():
-    print('***************************************')
+    print("***************************************")
     df = get_headlines("TSLA")
     df_grabbed_sentiment = update_sentiment_value(df)
     TSLA_Yahoo_data = load_TSLA_by_yfinance_Data("TSLA")
@@ -88,10 +102,18 @@ def home():
     kneigh = knc(a, b, c, d)
     logistic = logisticreg(a, b, c, d)
     supportVector = support(a, b, c, d)
-    naivebgauss = naive_bayes_gaussian(a,b,c,d)
-    naivebberno = naive_bayes_bernoulli(a,b,c,d)
+    naivebgauss = naive_bayes_gaussian(a, b, c, d)
+    naivebberno = naive_bayes_bernoulli(a, b, c, d)
 
-    return render_template('home.html' , data1= kneigh , data2= logistic , data3= supportVector , data4= naivebgauss , data5= naivebberno)
+    return render_template(
+        "home.html",
+        data1=kneigh,
+        data2=logistic,
+        data3=supportVector,
+        data4=naivebgauss,
+        data5=naivebberno,
+    )
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     app.run(debug=True)
