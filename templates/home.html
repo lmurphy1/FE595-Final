@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.css">
+    <link rel="stylesheet" type="text/css" href="static/util.css">
+    <link rel="stylesheet" type="text/css" href="static/main.css">
+    <!--===============================================================================================-->
+</head>
+<body>
+
+
+<div class="limiter">
+    <h2>Sentimental Analysis of Stock Data</h2>
+    <div class="container-table100">
+        <div class="wrap-table100">
+            <div class="table100 ver1 m-b-110">
+                <div class="table100-head">
+                    <table>
+                        <thead>
+                        <tr class="row100 head">
+                            <th class="cell100 column1">Model</th>
+                            <th class="cell100 column2">Accuracy</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+
+                <div class="table100-body js-pscroll">
+                    <table>
+                        <tbody>
+                        <tr class="row100 body">
+                            <td class="cell100 column1">KNeighbors Classifier</td>
+                            <td class="cell100 column2">{{data1}}</td>
+                        </tr>
+
+                        <tr class="row100 body">
+                            <td class="cell100 column1">Logistics Regression</td>
+                            <td class="cell100 column2">{{data2}}</td>
+                        </tr>
+
+                        <tr class="row100 body">
+                            <td class="cell100 column1">Support Vector Machines</td>
+                            <td class="cell100 column2">{{data3}}</td>
+                        </tr>
+
+                        <tr class="row100 body">
+                            <td class="cell100 column1">Naive Bayes Gaussian </td>
+                            <td class="cell100 column2">{{data4}}</td>
+                        </tr>
+
+                        <tr class="row100 body">
+                            <td class="cell100 column1">Naive Bayes Bernoulli</td>
+                            <td class="cell100 column2">{{data5}}</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div>
+                <span class="best">Best Model: KNeighbors Classifier - {{data1}} </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--===============================================================================================-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!--===============================================================================================-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!--===============================================================================================-->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/perfect-scrollbar.min.js"></script>
+<footer>
+    <span class="source-link">&#42;Web Data Source - <a href="https://seekingalpha.com/">Seeking Alpha Data</a></span>
+</footer>
+</body>
+
+</html>
