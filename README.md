@@ -2,7 +2,6 @@
 
 FE 595 Project – Group 1
 
-
 The group wanted to create a website that analyzes the relationship between the sentiment of news headlines and stock returns.
 
 We created a webscraper data to gather headlines and dates from Seeking Alpha. The webscraper relies on archived versions of the Seeking Alpha page for TSLA in order to continuously access old headlines. The script pulls the headlines dynamically, so the page takes about a minute to load. This is contained in the file webscraper.py
