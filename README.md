@@ -12,4 +12,6 @@ With the sentiment scores and TSLA returns, we created various machine learning 
 
 We developed the flask app to run sentiment analysis and display the output of model accuracies in the html file.
 
-Finally, we set up an EC2 instance in AWS and deployed our code.
+We setup up a AWS EC2 instance and deployed our code.
+
+The link to our code is http://ec2-18-223-187-91.us-east-2.compute.amazonaws.com:1234/
