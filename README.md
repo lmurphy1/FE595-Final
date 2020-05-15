@@ -14,4 +14,4 @@ We developed the flask app to run sentiment analysis and display the output of m
 
 We setup up a AWS EC2 instance and deployed our code.
 
-The link to our code is http://ec2-18-223-187-91.us-east-2.compute.amazonaws.com:1234/
+The url to the output of our code is http://ec2-18-223-187-91.us-east-2.compute.amazonaws.com:1234/
