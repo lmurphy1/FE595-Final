@@ -1,6 +1,6 @@
 # FE595-Final
 
-FE 595 Midterm Project – Group 1
+FE 595 Project – Group 1
 
 The group wanted to create a website that analyzes the relationship between the sentiment of news headlines and stock returns.
 
