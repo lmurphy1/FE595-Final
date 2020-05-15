@@ -16,7 +16,6 @@ from webscraping import get_headlines
 
 nltk.download("vader_lexicon")
 
-
 def update_sentiment_value(input_df_sentiment):
 
     input_df_sentiment["Score"] = 0.0
