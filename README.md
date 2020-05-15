@@ -11,3 +11,5 @@ We performed the sentiment analysis on the data we webscraped from Seeking Alpha
 With the sentiment scores and TSLA returns, we created various machine learning models and calculated their accuracy.
 
 We developed the flask app to run sentiment analysis and display the output of model accuracies in the html file.
+
+Finally, we set up an EC2 instance in AWS and deployed our code.
